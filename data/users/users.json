@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ac79a85b9cf6cc65",
+    "username": "admin",
+    "email": "admin@muster-kmu.ch",
+    "password_hash": "715b901a392b6b4ded5eacfd18dfc2d787f88f8423a25a4f296865e022c5cfe5",
+    "role": "admin",
+    "department": "it",
+    "display_name": "Administrator",
+    "first_name": "",
+    "last_name": "",
+    "phone": "",
+    "is_active": true,
+    "created_at": "2026-01-10T13:08:59.644022",
+    "last_login": "2026-01-10T13:09:14.652775",
+    "allowed_knowledge_bases": [],
+    "departments": [
+      "it"
+    ],
+    "can_upload": true,
+    "can_create_kb": true,
+    "can_scrape": true,
+    "can_manage_users": true,
+    "can_view_audit": true
+  }
+]

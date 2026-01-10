@@ -1,0 +1,182 @@
+{
+  "id": "f9d118eb",
+  "user_id": "default",
+  "erstellt_am": "2026-01-10T14:08:01.660751",
+  "aktualisiert_am": "2026-01-10T14:10:15.046680",
+  "status": "Eingereicht",
+  "schadenstyp": "Motorfahrzeug",
+  "polizennummer": "21242",
+  "schadensdatum": "2026-01-01",
+  "schadenszeit": "01:00",
+  "schadensort": "Bahnhof Zürich ",
+  "schadensort_plz": "",
+  "schadensbeschreibung": "Ich bin auf das Gleis gefahren",
+  "schadensursache": "Ich war betrunken",
+  "geschaetzter_betrag": 100000.0,
+  "waehrung": "CHF",
+  "beteiligte_personen": [],
+  "zeugen": [],
+  "fahrzeug_kennzeichen": "ZH244",
+  "fahrzeug_marke": "Golf R",
+  "fahrzeug_modell": "",
+  "gegner_kennzeichen": "Keine",
+  "gegner_versicherung": "-",
+  "polizeibericht": false,
+  "polizeiposten": "",
+  "fotos_vorhanden": false,
+  "fotos": [
+    "/Users/retolutz/Desktop/rag_gar/rag_baloise/data/schadensmeldungen/fotos/f9d118eb_beac4650_Screenshot 2025-11-30 at 02.58.47.png"
+  ],
+  "dokumente": [],
+  "kontakt_telefon": "08",
+  "kontakt_email": "reto.lutz@students.fhnw.ch",
+  "bevorzugte_kontaktzeit": "Mittags",
+  "chat_history": [
+    {
+      "role": "assistant",
+      "content": "Guten Tag! Ich bin Ihr Schadensmeldungs-Assistent. Ich werde Ihnen einige Fragen stellen, um Ihren Schaden aufzunehmen. Sie können jederzeit 'zurück' eingeben um zur vorherigen Frage zu gelangen."
+    },
+    {
+      "role": "user",
+      "content": "Motorfahrzeug"
+    },
+    {
+      "role": "assistant",
+      "content": "Wie lautet Ihre Policennummer? (Falls bekannt, sonst 'unbekannt' eingeben)"
+    },
+    {
+      "role": "user",
+      "content": "21242"
+    },
+    {
+      "role": "assistant",
+      "content": "Wann ist der Schaden passiert? (Datum)"
+    },
+    {
+      "role": "user",
+      "content": "2026-01-01"
+    },
+    {
+      "role": "assistant",
+      "content": "Ungefähr um welche Uhrzeit ist der Schaden passiert?"
+    },
+    {
+      "role": "user",
+      "content": "01:00"
+    },
+    {
+      "role": "assistant",
+      "content": "Wo ist der Schaden passiert? (Adresse oder Beschreibung des Ortes)"
+    },
+    {
+      "role": "user",
+      "content": "Bahnhof Zürich "
+    },
+    {
+      "role": "assistant",
+      "content": "Bitte beschreiben Sie den Schaden so detailliert wie möglich. Was genau ist passiert?"
+    },
+    {
+      "role": "user",
+      "content": "Ich bin auf das Gleis gefahren"
+    },
+    {
+      "role": "assistant",
+      "content": "Haben Sie Fotos vom Schaden? Sie können diese hier hochladen (optional, max. 5 Bilder)."
+    },
+    {
+      "role": "user",
+      "content": "📸 1 Foto(s) hochgeladen"
+    },
+    {
+      "role": "assistant",
+      "content": "Was war die Ursache des Schadens?"
+    },
+    {
+      "role": "assistant",
+      "content": "Was war die Ursache des Schadens?"
+    },
+    {
+      "role": "user",
+      "content": "Ich war betrunken"
+    },
+    {
+      "role": "assistant",
+      "content": "Wie lautet das Kennzeichen Ihres Fahrzeugs?"
+    },
+    {
+      "role": "user",
+      "content": "ZH244"
+    },
+    {
+      "role": "assistant",
+      "content": "Welche Marke und welches Modell hat Ihr Fahrzeug?"
+    },
+    {
+      "role": "user",
+      "content": "Golf R"
+    },
+    {
+      "role": "assistant",
+      "content": "Falls ein anderes Fahrzeug beteiligt war: Wie lautet dessen Kennzeichen?"
+    },
+    {
+      "role": "user",
+      "content": "Keine"
+    },
+    {
+      "role": "assistant",
+      "content": "Kennen Sie die Versicherung des anderen Fahrzeugs?"
+    },
+    {
+      "role": "user",
+      "content": "-"
+    },
+    {
+      "role": "assistant",
+      "content": "Wie hoch schätzen Sie den Schaden? (in CHF)"
+    },
+    {
+      "role": "user",
+      "content": "100000.0"
+    },
+    {
+      "role": "assistant",
+      "content": "Wurde der Vorfall bei der Polizei gemeldet?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wurde der Vorfall bei der Polizei gemeldet?"
+    },
+    {
+      "role": "user",
+      "content": "Nein"
+    },
+    {
+      "role": "assistant",
+      "content": "Unter welcher Telefonnummer können wir Sie erreichen?"
+    },
+    {
+      "role": "user",
+      "content": "08"
+    },
+    {
+      "role": "assistant",
+      "content": "Wie lautet Ihre E-Mail-Adresse für Rückfragen?"
+    },
+    {
+      "role": "user",
+      "content": "reto.lutz@students.fhnw.ch"
+    },
+    {
+      "role": "assistant",
+      "content": "Wann können wir Sie am besten erreichen?"
+    },
+    {
+      "role": "user",
+      "content": "Mittags"
+    }
+  ],
+  "erfassung_abgeschlossen": true,
+  "aktuelle_frage": 18
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "personal",
+    "name": "Personal",
+    "description": "Personalvermittlung und HR",
+    "allowed_knowledge_bases": [],
+    "created_at": "2026-01-10T13:08:59.644252",
+    "is_active": true
+  },
+  {
+    "id": "finanzen",
+    "name": "Finanzen",
+    "description": "Buchhaltung und Lohnwesen",
+    "allowed_knowledge_bases": [],
+    "created_at": "2026-01-10T13:08:59.644333",
+    "is_active": true
+  },
+  {
+    "id": "vertrieb",
+    "name": "Vertrieb",
+    "description": "Kundenakquise und Sales",
+    "allowed_knowledge_bases": [],
+    "created_at": "2026-01-10T13:08:59.644411",
+    "is_active": true
+  },
+  {
+    "id": "backoffice",
+    "name": "Backoffice",
+    "description": "Administration und Support",
+    "allowed_knowledge_bases": [],
+    "created_at": "2026-01-10T13:08:59.644483",
+    "is_active": true
+  }
+]

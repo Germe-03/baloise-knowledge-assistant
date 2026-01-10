@@ -1,0 +1,53 @@
+# S&P Knowledge Assistant - Dependencies
+# Steinmann & Partner GmbH
+# Version 2.0
+
+# Web Framework
+streamlit>=1.31.0
+
+# HTTP Client
+httpx>=0.26.0
+
+# Vector Database
+chromadb>=0.4.22
+
+# Document Processing
+PyMuPDF>=1.23.0
+python-docx>=1.1.0
+openpyxl>=3.1.2
+pandas>=2.1.0
+beautifulsoup4>=4.12.0
+extract-msg>=0.48.0
+
+# OCR (optional)
+pytesseract>=0.3.10
+Pillow>=10.0.0
+
+# Machine Learning / Embeddings
+numpy>=1.24.0
+scikit-learn>=1.3.0  # Für Clustering (K-Means, TF-IDF)
+
+# BM25 für Hybrid Search
+rank_bm25>=0.2.2
+
+# Speech-to-Text
+faster-whisper>=1.0.0  # Lokales Whisper (optional, für offline STT)
+google-cloud-speech>=2.21.0  # Google Cloud STT (optional, für Schweizerdeutsch)
+
+# Utilities
+python-dotenv>=1.0.0
+
+# QR-Code Generation
+qrcode>=7.4.0
+
+# Neu in Version 2.0:
+# Word-Export für Dokumentvorlagen
+# (python-docx ist bereits oben enthalten)
+
+# Web-Scraping für Rechtsdatenbank
+# (beautifulsoup4 und httpx sind bereits oben enthalten)
+
+# Development (optional)
+# pytest>=7.4.0
+# black>=23.0.0
+# flake8>=6.0.0

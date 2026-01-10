@@ -1,0 +1,59 @@
+# S&P Knowledge Assistant
+# Steinmann & Partner GmbH
+# Docker Compose Konfiguration
+
+version: '3.8'
+
+services:
+  # Haupt-Applikation
+  app:
+    build: .
+    container_name: sp-knowledge-assistant
+    ports:
+      - "8501:8501"
+    volumes:
+      # Persistente Daten
+      - ./data/uploads:/app/data/uploads
+      - ./data/knowledge_bases:/app/data/knowledge_bases
+      - ./data/chroma_db:/app/data/chroma_db
+    environment:
+      # Ollama (auf Host oder separater Container)
+      - OLLAMA_HOST=${OLLAMA_HOST:-http://host.docker.internal:11434}
+      
+      # API Keys (optional)
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY:-}
+      
+      # Debug
+      - DEBUG=${DEBUG:-false}
+    restart: unless-stopped
+    networks:
+      - sp-network
+    
+    # Für macOS/Windows: Zugriff auf Host-Ollama
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  # ChromaDB (optional als separater Container)
+  # Aktuell nutzen wir embedded ChromaDB, 
+  # kann aber für Skalierung externalisiert werden
+  # chromadb:
+  #   image: chromadb/chroma:latest
+  #   container_name: sp-chromadb
+  #   ports:
+  #     - "8000:8000"
+  #   volumes:
+  #     - ./data/chroma_db:/chroma/chroma
+  #   networks:
+  #     - sp-network
+
+networks:
+  sp-network:
+    driver: bridge
+
+# Volumes für persistente Daten
+volumes:
+  uploads:
+  knowledge_bases:
+  chroma_db:

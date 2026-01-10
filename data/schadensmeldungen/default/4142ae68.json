@@ -1,0 +1,167 @@
+{
+  "id": "4142ae68",
+  "user_id": "default",
+  "erstellt_am": "2026-01-10T13:40:36.108279",
+  "aktualisiert_am": "2026-01-10T13:42:23.552217",
+  "status": "Entwurf",
+  "schadenstyp": "Motorfahrzeug",
+  "polizennummer": "13556",
+  "schadensdatum": "2026-01-09",
+  "schadenszeit": "15:22",
+  "schadensort": "Bahnhof Wettswil",
+  "schadensort_plz": "",
+  "schadensbeschreibung": "Ich bin leider gegen einen Baum gefahren",
+  "schadensursache": "Besoffen",
+  "geschaetzter_betrag": 10000.0,
+  "waehrung": "CHF",
+  "beteiligte_personen": [],
+  "zeugen": [],
+  "fahrzeug_kennzeichen": "ZH1213",
+  "fahrzeug_marke": "Porsche 911 Turbo S",
+  "fahrzeug_modell": "",
+  "gegner_kennzeichen": "keine",
+  "gegner_versicherung": "-",
+  "polizeibericht": false,
+  "polizeiposten": "",
+  "fotos_vorhanden": false,
+  "dokumente": [],
+  "kontakt_telefon": "0798836555",
+  "kontakt_email": "reto.lutz@gmx.ch",
+  "bevorzugte_kontaktzeit": "Vormitttags",
+  "chat_history": [
+    {
+      "role": "assistant",
+      "content": "Guten Tag! Ich bin Ihr Schadensmeldungs-Assistent. Ich werde Ihnen einige Fragen stellen, um Ihren Schaden aufzunehmen. Sie können jederzeit 'zurück' eingeben um zur vorherigen Frage zu gelangen."
+    },
+    {
+      "role": "assistant",
+      "content": "Um welche Art von Schaden handelt es sich?"
+    },
+    {
+      "role": "user",
+      "content": "Motorfahrzeug"
+    },
+    {
+      "role": "assistant",
+      "content": "Wie lautet Ihre Policennummer? (Falls bekannt, sonst 'unbekannt' eingeben)"
+    },
+    {
+      "role": "user",
+      "content": "13556"
+    },
+    {
+      "role": "assistant",
+      "content": "Wann ist der Schaden passiert? (Datum)"
+    },
+    {
+      "role": "user",
+      "content": "2026-01-09"
+    },
+    {
+      "role": "assistant",
+      "content": "Ungefähr um welche Uhrzeit ist der Schaden passiert?"
+    },
+    {
+      "role": "user",
+      "content": "15:22"
+    },
+    {
+      "role": "assistant",
+      "content": "Wo ist der Schaden passiert? (Adresse oder Beschreibung des Ortes)"
+    },
+    {
+      "role": "user",
+      "content": "Bahnhof Wettswil"
+    },
+    {
+      "role": "assistant",
+      "content": "Bitte beschreiben Sie den Schaden so detailliert wie möglich. Was genau ist passiert?"
+    },
+    {
+      "role": "user",
+      "content": "Ich bin leider gegen einen Baum gefahren"
+    },
+    {
+      "role": "assistant",
+      "content": "Was war die Ursache des Schadens?"
+    },
+    {
+      "role": "user",
+      "content": "Besoffen"
+    },
+    {
+      "role": "assistant",
+      "content": "Wie lautet das Kennzeichen Ihres Fahrzeugs?"
+    },
+    {
+      "role": "user",
+      "content": "ZH1213"
+    },
+    {
+      "role": "assistant",
+      "content": "Welche Marke und welches Modell hat Ihr Fahrzeug?"
+    },
+    {
+      "role": "user",
+      "content": "Porsche 911 Turbo S"
+    },
+    {
+      "role": "assistant",
+      "content": "Falls ein anderes Fahrzeug beteiligt war: Wie lautet dessen Kennzeichen?"
+    },
+    {
+      "role": "user",
+      "content": "keine"
+    },
+    {
+      "role": "assistant",
+      "content": "Kennen Sie die Versicherung des anderen Fahrzeugs?"
+    },
+    {
+      "role": "user",
+      "content": "-"
+    },
+    {
+      "role": "assistant",
+      "content": "Wie hoch schätzen Sie den Schaden? (in CHF)"
+    },
+    {
+      "role": "user",
+      "content": "10000.0"
+    },
+    {
+      "role": "assistant",
+      "content": "Wurde der Vorfall bei der Polizei gemeldet?"
+    },
+    {
+      "role": "user",
+      "content": "Nein"
+    },
+    {
+      "role": "assistant",
+      "content": "Unter welcher Telefonnummer können wir Sie erreichen?"
+    },
+    {
+      "role": "user",
+      "content": "0798836555"
+    },
+    {
+      "role": "assistant",
+      "content": "Wie lautet Ihre E-Mail-Adresse für Rückfragen?"
+    },
+    {
+      "role": "user",
+      "content": "reto.lutz@gmx.ch"
+    },
+    {
+      "role": "assistant",
+      "content": "Wann können wir Sie am besten erreichen?"
+    },
+    {
+      "role": "user",
+      "content": "Vormitttags"
+    }
+  ],
+  "erfassung_abgeschlossen": true,
+  "aktuelle_frage": 17
+}

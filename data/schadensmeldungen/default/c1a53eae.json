@@ -1,0 +1,48 @@
+{
+  "id": "c1a53eae",
+  "user_id": "default",
+  "erstellt_am": "2026-01-10T14:28:22.646301",
+  "aktualisiert_am": "2026-01-10T14:28:25.637997",
+  "status": "Entwurf",
+  "schadenstyp": "Andere",
+  "polizennummer": "",
+  "schadensdatum": "",
+  "schadenszeit": "",
+  "schadensort": "",
+  "schadensort_plz": "",
+  "schadensbeschreibung": "",
+  "schadensursache": "",
+  "geschaetzter_betrag": 0.0,
+  "waehrung": "CHF",
+  "beteiligte_personen": [],
+  "zeugen": [],
+  "fahrzeug_kennzeichen": "",
+  "fahrzeug_marke": "",
+  "fahrzeug_modell": "",
+  "gegner_kennzeichen": "",
+  "gegner_versicherung": "",
+  "polizeibericht": false,
+  "polizeiposten": "",
+  "fotos_vorhanden": false,
+  "fotos": [],
+  "dokumente": [],
+  "kontakt_telefon": "",
+  "kontakt_email": "",
+  "bevorzugte_kontaktzeit": "",
+  "chat_history": [
+    {
+      "role": "assistant",
+      "content": "Guten Tag! Ich bin Ihr Schadensmeldungs-Assistent. Ich werde Ihnen einige Fragen stellen, um Ihren Schaden aufzunehmen. Sie können jederzeit 'zurück' eingeben um zur vorherigen Frage zu gelangen."
+    },
+    {
+      "role": "assistant",
+      "content": "Um welche Art von Schaden handelt es sich?"
+    },
+    {
+      "role": "user",
+      "content": "Andere"
+    }
+  ],
+  "erfassung_abgeschlossen": false,
+  "aktuelle_frage": 1
+}

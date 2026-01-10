@@ -1,0 +1,68 @@
+{
+  "id": "c7c84955",
+  "title": "Baloise Versicherungsangebote",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Welche Versicherungen hat die Baloise?",
+      "timestamp": "2026-01-10T14:04:11.537300",
+      "sources": [],
+      "attachments": [],
+      "message_id": "6196cb1a",
+      "feedback": null
+    },
+    {
+      "role": "assistant",
+      "content": "Die Baloise bietet eine Vielzahl von Versicherungen an, darunter:\n\n1. **Haftpflichtversicherung**: Schutz vor finanziellen Folgen bei Schäden an Dritten oder deren Eigentum [Baloise Haftpflichtversicherung, Übersicht].\n\n2. **Autoversicherung**: Umfassender Versicherungsschutz für Fahrzeuge mit Haftpflicht-, Teilkasko- und Vollkaskoversicherung [Baloise Autoversicherung, Übersicht].\n\n3. **Hausratversicherung**: Schutz des Hausrats gegen Schäden durch Feuer, Wasser, Einbruch und mehr [Baloise Hausratversicherung, Übersicht].\n\n4. **Lebensversicherungen**: Verschiedene Produkte für Vorsorge, Absicherung und Vermögensaufbau, wie Baloise Safe Plan und Fonds Plan [Baloise Lebensversicherungen, Produktpalette].\n\n5. **Motorradversicherung**: Versicherungsschutz für Motorräder, Roller und Mopeds [Baloise Motorradversicherung, Übersicht].\n\n6. **Rechtsschutzversicherung**: Schutz in rechtlichen Angelegenheiten in Zusammenarbeit mit Assista Rechtsschutz AG [Baloise Rechtsschutzversicherung, Übersicht].\n\n7. **Reiseversicherung**: Schutz für Reisen, Gepäck und Fahrzeuge während der Ferien [Baloise Reiseversicherung, Übersicht].\n\n8. **Wertsachenversicherung**: Schutz für wertvolle Gegenstände wie Schmuck, Kunstwerke und Elektronik [Baloise Wertsachenversicherung, Übersicht].\n\n9. **BaloiseCombi Haushalt**: Kombi-Paket mit Hausrat-, Privathaftpflicht- und optionaler Gebäudeversicherung [BaloiseCombi Haushalt, Übersicht]. \n\nDiese Versicherungen bieten umfassenden Schutz in verschiedenen Lebensbereichen und können teilweise individuell angepasst werden.",
+      "timestamp": "2026-01-10T14:04:21.038215",
+      "sources": [
+        "haftpflichtversicherung.md",
+        "autoversicherung.md",
+        "hausratversicherung.md",
+        "lebensversicherung.md",
+        "motorradversicherung.md",
+        "baloisecombi_haushalt.md",
+        "rechtsschutzversicherung.md",
+        "reiseversicherung.md",
+        "wertsachenversicherung.md",
+        "baloise_plus_bonusprogramm.md",
+        "schadensmeldung_-_so_melden_sie_einen_schaden.md"
+      ],
+      "attachments": [],
+      "message_id": "c9a2bf5b",
+      "feedback": null
+    },
+    {
+      "role": "user",
+      "content": "Wann greift die Haftpflichtversicherung?",
+      "timestamp": "2026-01-10T14:07:19.366065",
+      "sources": [],
+      "attachments": [],
+      "message_id": "dff56272",
+      "feedback": null
+    },
+    {
+      "role": "assistant",
+      "content": "Die Haftpflichtversicherung der Baloise greift, wenn Sie versehentlich Dritten oder deren Eigentum Schaden zufügen. Dazu gehören unter anderem versehentlich verursachte Schäden an Dritten oder deren Eigentum, Schäden durch Haustiere, Schäden an gelegentlich genutzten fremden Fahrzeugen, Schäden durch Drohnen und Modellluftfahrzeuge (ohne BAZL-Bewilligung) sowie Schäden als Mieter an der gemieteten Wohnung. Zudem bietet sie auch passiven Rechtsschutz zur Abwehr ungerechtfertigter Ansprüche. (Quelle: Baloise Haftpflichtversicherung, Deckungen & Leistungen)",
+      "timestamp": "2026-01-10T14:07:23.228300",
+      "sources": [
+        "haftpflichtversicherung.md",
+        "autoversicherung.md",
+        "rechtsschutzversicherung.md",
+        "baloisecombi_haushalt.md"
+      ],
+      "attachments": [],
+      "message_id": "19c6abd8",
+      "feedback": null
+    }
+  ],
+  "created_at": "2026-01-10T14:04:21.041348",
+  "updated_at": "2026-01-10T14:07:23.228659",
+  "knowledge_bases": [
+    "schadenbearbeitung",
+    "rechtliches",
+    "versicherungsbedingungen",
+    "kundenservice",
+    "produkte"
+  ]
+}

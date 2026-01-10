@@ -1,0 +1,36 @@
+# S&P Knowledge Assistant - Streamlit Konfiguration
+
+[theme]
+# Steinmann & Partner Branding
+primaryColor = "#1a365d"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f7fafc"
+textColor = "#2d3748"
+font = "sans serif"
+
+[server]
+# Server-Einstellungen
+port = 8501
+address = "0.0.0.0"
+headless = true
+enableCORS = false
+enableXsrfProtection = true
+
+# File Upload
+maxUploadSize = 200  # MB
+
+[browser]
+# Browser-Einstellungen
+gatherUsageStats = false
+serverAddress = "localhost"
+serverPort = 8501
+
+[runner]
+# Runner-Einstellungen
+magicEnabled = true
+fastReruns = true
+
+[client]
+# Client-Einstellungen
+showErrorDetails = true
+toolbarMode = "minimal"

@@ -1,0 +1,55 @@
+{
+  "id": "6c9a71c3",
+  "user_id": "default",
+  "erstellt_am": "2026-01-10T13:09:40.478834",
+  "aktualisiert_am": "2026-01-10T13:09:59.442241",
+  "status": "Entwurf",
+  "schadenstyp": "Rechtsschutz",
+  "polizennummer": "124",
+  "schadensdatum": "",
+  "schadenszeit": "",
+  "schadensort": "",
+  "schadensort_plz": "",
+  "schadensbeschreibung": "",
+  "schadensursache": "",
+  "geschaetzter_betrag": 0.0,
+  "waehrung": "CHF",
+  "beteiligte_personen": [],
+  "zeugen": [],
+  "fahrzeug_kennzeichen": "",
+  "fahrzeug_marke": "",
+  "fahrzeug_modell": "",
+  "gegner_kennzeichen": "",
+  "gegner_versicherung": "",
+  "polizeibericht": false,
+  "polizeiposten": "",
+  "fotos_vorhanden": false,
+  "dokumente": [],
+  "kontakt_telefon": "",
+  "kontakt_email": "",
+  "bevorzugte_kontaktzeit": "",
+  "chat_history": [
+    {
+      "role": "assistant",
+      "content": "Guten Tag! Ich bin Ihr Schadensmeldungs-Assistent. Ich werde Ihnen einige Fragen stellen, um Ihren Schaden aufzunehmen. Sie können jederzeit 'zurück' eingeben um zur vorherigen Frage zu gelangen."
+    },
+    {
+      "role": "assistant",
+      "content": "Um welche Art von Schaden handelt es sich?"
+    },
+    {
+      "role": "user",
+      "content": "Rechtsschutz"
+    },
+    {
+      "role": "assistant",
+      "content": "Wie lautet Ihre Policennummer? (Falls bekannt, sonst 'unbekannt' eingeben)"
+    },
+    {
+      "role": "user",
+      "content": "124"
+    }
+  ],
+  "erfassung_abgeschlossen": false,
+  "aktuelle_frage": 2
+}
