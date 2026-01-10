@@ -36,7 +36,11 @@ env/
 *.swo
 *~
 
-# NOTE: .env is INCLUDED (contains API key for demo)
+# Environment Variables (API Keys)
+.env
+.env.local
+.env.*.local
+
 # NOTE: data/ is INCLUDED (contains embedded knowledge)
 
 # Logs
