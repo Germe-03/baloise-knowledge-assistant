@@ -29,6 +29,7 @@ from app.components.chat import render_chat_interface, render_chat_settings
 from app.components.knowledge_manager import render_knowledge_manager
 # Admin Panel entfernt
 from app.components.schadensmeldung import render_schadensmeldung, render_schadensmeldungen_liste
+from app.components.admin_panel import render_clustering_tab
 
 # Auth entfernt - direkter Zugang
 from app.components.icons import inject_icon_css
@@ -214,6 +215,7 @@ def render_sidebar():
             ("schadensmeldung", "📋 Schadensmeldung"),
             ("schaden_liste", "📁 Meine Schäden"),
             ("knowledge", "📚 Wissensbasis"),
+            ("clustering", "Clustering"),
         ]
 
         for page_id, label in nav_items:
@@ -243,6 +245,9 @@ def render_main_content():
 
     elif page == "knowledge":
         render_knowledge_manager()
+
+    elif page == "clustering":
+        render_clustering_tab()
 
 
 def init_all_states():

@@ -5,6 +5,7 @@ Streamlit-Komponente für System-Administration
 
 import streamlit as st
 import os
+import json
 from datetime import datetime
 
 from app.core.rag_engine import rag_engine
@@ -14,7 +15,7 @@ from app.core.embeddings import embedding_provider
 from app.core.cbr_engine import cbr_engine
 from app.core.user_management import user_manager, department_manager, UserRole, Department
 from app.utils.file_handlers import get_storage_stats, cleanup_temp_files
-from app.config import config, INITIAL_USERS
+from app.config import config, INITIAL_USERS, DATA_DIR
 
 
 def init_admin_state():
@@ -56,13 +57,14 @@ def render_admin_panel():
     st.header("Administration")
     
     # Tabs
-    tab_system, tab_improvements, tab_personal, tab_departments, tab_chat, tab_llm, tab_maintenance = st.tabs([
+    tab_system, tab_improvements, tab_personal, tab_departments, tab_chat, tab_llm, tab_clustering, tab_maintenance = st.tabs([
         "System",
         "Verbesserungen",
         "Personal",
         "Abteilungen",
         "Chat",
         "LLM-Settings",
+        "Clustering",
         "Wartung"
     ])
 
@@ -83,6 +85,9 @@ def render_admin_panel():
 
     with tab_llm:
         render_llm_tab()
+
+    with tab_clustering:
+        render_clustering_tab()
 
     with tab_maintenance:
         render_maintenance_tab()
@@ -709,6 +714,56 @@ def render_chat_settings_tab():
             """, unsafe_allow_html=True)
 
     st.caption("Kopiere den Hex-Wert und fuege ihn oben ein.")
+
+
+def render_clustering_tab():
+    """Clustering-Ansicht fuer User-Anfragen"""
+    st.subheader("Clustering (User-Anfragen)")
+    cluster_file = DATA_DIR / "chat_clusters" / "clusters.json"
+
+    if not cluster_file.exists():
+        st.info("Keine Cluster-Daten gefunden. Fuehre das Clustering-Skript aus, um Daten zu erzeugen.")
+        st.code("python scripts/cluster_chats.py", language="bash")
+        return
+
+    try:
+        data = json.loads(cluster_file.read_text(encoding="utf-8"))
+    except Exception:
+        st.error("Cluster-Daten konnten nicht geladen werden.")
+        return
+
+    generated_at = data.get("generated_at", "-")
+    total_messages = data.get("total_messages", 0)
+    cluster_count = data.get("cluster_count", 0)
+    clusters = data.get("clusters", [])
+
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric("Anfragen gesamt", total_messages)
+    with col2:
+        st.metric("Cluster", cluster_count)
+    with col3:
+        st.metric("Letzte Aktualisierung", generated_at[:16] if generated_at else "-")
+
+    st.divider()
+
+    if not clusters:
+        st.info("Keine Cluster vorhanden.")
+        return
+
+    for cluster in clusters:
+        cluster_id = cluster.get("id", "-")
+        size = cluster.get("size", 0)
+        examples = cluster.get("examples", [])
+        top_terms = cluster.get("top_terms", [])
+
+        with st.expander(f"Cluster {cluster_id} ({size})", expanded=False):
+            if top_terms:
+                st.markdown("**Top-Terme:** " + ", ".join(top_terms))
+            if examples:
+                st.markdown("**Beispiele:**")
+                for ex in examples:
+                    st.markdown(f"- {ex}")
 
 
 def render_system_tab():

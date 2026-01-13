@@ -149,6 +149,10 @@ def init_chat_state():
         st.session_state.chat_attachments = []  # Temporäre Anhänge für aktuelle Nachricht
     if "attachment_contexts" not in st.session_state:
         st.session_state.attachment_contexts = {}  # {filename: extracted_text}
+    if "chat_initialized" not in st.session_state:
+        st.session_state.chat_initialized = True
+        if st.session_state.current_conversation_id is None:
+            start_new_conversation()
 
 
 def get_chat_history_manager() -> ChatHistoryManager:
@@ -205,10 +209,11 @@ def render_chat_settings():
         if st.button("+ Neuer Chat", use_container_width=True, type="primary", key="new_chat_btn"):
             if st.session_state.messages:
                 save_current_conversation()
-            st.session_state.current_conversation_id = None
             st.session_state.messages = []
             st.session_state.chat_attachments = []
             st.session_state.attachment_contexts = {}
+            st.session_state.current_conversation_id = None
+            start_new_conversation()
             st.rerun()
 
         if conversations:
@@ -259,6 +264,22 @@ def _render_chat_item(conv, history_manager):
         load_conversation(conv.id)
 
 
+def start_new_conversation():
+    """Startet eine neue Konversation und speichert einen leeren Verlauf"""
+    history_manager = get_chat_history_manager()
+    now = datetime.now().isoformat()
+    conv = Conversation(
+        id=str(uuid.uuid4())[:8],
+        title="Neuer Chat",
+        messages=[],
+        created_at=now,
+        updated_at=now,
+        knowledge_bases=st.session_state.get("selected_knowledge_bases", [])
+    )
+    history_manager.save_conversation(conv)
+    st.session_state.current_conversation_id = conv.id
+
+
 def save_current_conversation():
     """Speichert die aktuelle Konversation"""
     if not st.session_state.messages:
@@ -273,7 +294,17 @@ def save_current_conversation():
         if conv:
             conv.messages = [ChatMessage.from_dict(m) if isinstance(m, dict) else m
                           for m in st.session_state.messages]
+            if conv.title == "Neuer Chat":
+                first_user_msg = next(
+                    (m["content"] if isinstance(m, dict) else m.content
+                     for m in st.session_state.messages
+                     if (m["role"] if isinstance(m, dict) else m.role) == "user"),
+                    ""
+                )
+                if first_user_msg:
+                    conv.title = generate_conversation_title(first_user_msg)
             conv.updated_at = now
+            conv.knowledge_bases = st.session_state.selected_knowledge_bases
             history_manager.save_conversation(conv)
     else:
         # Neue Konversation erstellen
@@ -491,6 +522,7 @@ def render_chat_interface():
             "attachments": attachment_names
         }
         st.session_state.messages.append(user_message)
+        save_current_conversation()
 
         with st.chat_message("user"):
             st.markdown(prompt)
@@ -610,6 +642,7 @@ Wenn Dokumente angehängt wurden, beziehe dich auf deren Inhalt."""
                         "sources": [],
                         "attachments": []
                     })
+                    save_current_conversation()
 
 
 def render_chat_with_streaming():
