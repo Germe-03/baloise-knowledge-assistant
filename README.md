@@ -7,7 +7,7 @@ Intelligenter Versicherungs-Chatbot mit RAG (Retrieval-Augmented Generation) und
 ### 💬 Chat
 - KI-gestützter Chatbot für Versicherungsfragen
 - RAG-Integration für kontextbezogene Antworten aus der Wissensbasis
-- Chat-Historie mit Speicherung
+- Chat-Historie mit Speicherung (JSON unter data/chat_history)
 - Multi-LLM Support (OpenAI, Anthropic, Google, Ollama)
 
 ### 📋 Schadensmeldung Bot
@@ -28,6 +28,18 @@ Intelligenter Versicherungs-Chatbot mit RAG (Retrieval-Augmented Generation) und
 - Automatische Indexierung mit ChromaDB
 - Hybrid Search (BM25 + Vektorsuche)
 - Mehrere Wissensbasen möglich
+
+## Clustering
+
+```bash
+# Lokales Clustering der User-Anfragen
+python scripts/cluster_chats.py
+
+# Optional: Parameter anpassen
+python scripts/cluster_chats.py --distance-threshold 0.7 --examples 4 --top-terms 6
+```
+
+Die Ergebnisse werden als JSON unter data/chat_clusters gespeichert und im UI unter "Clustering" angezeigt.
 
 ## Installation
 
@@ -95,6 +107,11 @@ rag_baloise/
 │   └── uploads/            # Hochgeladene Dokumente
 └── requirements.txt
 ```
+
+### Weitere Pfade
+- scripts/cluster_chats.py (Clustering der User-Anfragen)
+- data/chat_history/ (Chat-Historie)
+- data/chat_clusters/ (Clustering-Ergebnisse)
 
 ## Schadensmeldung-Flow
 
