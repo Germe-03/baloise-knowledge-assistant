@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-01-14T11:07:44.236315",
+  "total_messages": 21,
+  "cluster_count": 3,
+  "min_cluster_size": 3,
+  "min_cluster_percent": 0.2,
+  "clusters": [
+    {
+      "id": "other",
+      "size": 15,
+      "examples": [
+        "ich habe mir ein teures auto gekauft, welche versicherungen benötige ich?",
+        "Welche Versicherungen hat die Baloise?",
+        "Wow, was kannst du denn überhaupt?",
+        "okay, was kannst du mir zu den Haftpflichversicherungen sagen?"
+      ],
+      "top_terms": []
+    },
+    {
+      "id": 1,
+      "size": 3,
+      "examples": [
+        "unter welche versicherung geht das?",
+        "Nein, wenn ich eine Katze angefahren habe, unter welche versicherung geht das?",
+        "Okay, ich brauche eine versicherung für mein Velo, unterwas geht das?"
+      ],
+      "top_terms": [
+        "geht das",
+        "das",
+        "geht",
+        "unter",
+        "unter welche",
+        "versicherung geht"
+      ]
+    },
+    {
+      "id": 7,
+      "size": 3,
+      "examples": [
+        "okay, wo sollte ich mich melden?",
+        "Okay, wo soll ich mich wegen einer rückvergütung melden?",
+        "wo muss ich mich melden, wenn ich eine versicherung abschliessen möchte?"
+      ],
+      "top_terms": [
+        "wo",
+        "melden",
+        "mich",
+        "ich mich",
+        "okay wo",
+        "mich melden"
+      ]
+    }
+  ]
+}
