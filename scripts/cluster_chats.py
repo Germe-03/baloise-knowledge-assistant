@@ -138,61 +138,100 @@ def write_output(payload: Dict[str, Any]) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Cluster user chat messages.")
-    parser.add_argument("--distance-threshold", type=float, default=0.7)
+    parser.add_argument("--distance-threshold", type=float, default=0.85)
     parser.add_argument("--max-features", type=int, default=5000)
     parser.add_argument("--examples", type=int, default=4)
     parser.add_argument("--top-terms", type=int, default=6)
+    parser.add_argument("--min-cluster-size", type=int, default=3)
+    parser.add_argument("--min-cluster-percent", type=float, default=0.2)
     args = parser.parse_args()
 
     messages = load_user_messages()
     texts = [m.content for m in messages]
+    desired_clusters = max(1, int(np.ceil(len(texts) * args.min_cluster_percent)))
 
-    cluster_data = build_clusters(
-        texts=texts,
-        distance_threshold=args.distance_threshold,
-        max_features=args.max_features
-    )
+    best_clusters: List[Dict[str, Any]] = []
+    best_count = 0
+    threshold = args.distance_threshold
 
-    labels = cluster_data["labels"]
-    vectorizer = cluster_data["vectorizer"]
-    matrix = cluster_data["matrix"]
+    for _ in range(13):
+        cluster_data = build_clusters(
+            texts=texts,
+            distance_threshold=threshold,
+            max_features=args.max_features
+        )
 
-    clusters: List[Dict[str, Any]] = []
+        labels = cluster_data["labels"]
+        vectorizer = cluster_data["vectorizer"]
+        matrix = cluster_data["matrix"]
 
-    if labels:
-        feature_names = vectorizer.get_feature_names_out().tolist() if vectorizer else []
-        dense_matrix = matrix.toarray() if matrix is not None else np.array([])
-        label_set = sorted(set(labels))
+        clusters: List[Dict[str, Any]] = []
+        small_bucket: Dict[str, Any] = {
+            "id": "other",
+            "size": 0,
+            "examples": [],
+            "top_terms": []
+        }
 
-        for label in label_set:
-            idx = [i for i, l in enumerate(labels) if l == label]
-            cluster_texts = [texts[i] for i in idx]
-            cluster_vectors = dense_matrix[idx] if dense_matrix.size else np.array([])
+        if labels:
+            feature_names = vectorizer.get_feature_names_out().tolist() if vectorizer else []
+            dense_matrix = matrix.toarray() if matrix is not None else np.array([])
+            label_set = sorted(set(labels))
 
-            if cluster_vectors.size:
-                centroid = cluster_vectors.mean(axis=0)
-                samples = example_sentences(cluster_texts, cluster_vectors, centroid, args.examples)
-                terms = top_terms_for_cluster(feature_names, cluster_vectors, args.top_terms)
-            else:
-                centroid = np.array([])
-                samples = cluster_texts[: args.examples]
-                terms = []
+            for label in label_set:
+                idx = [i for i, l in enumerate(labels) if l == label]
+                cluster_texts = [texts[i] for i in idx]
+                cluster_vectors = dense_matrix[idx] if dense_matrix.size else np.array([])
 
-            clusters.append(
-                {
-                    "id": int(label),
-                    "size": len(cluster_texts),
-                    "examples": samples,
-                    "top_terms": terms
-                }
-            )
+                if cluster_vectors.size:
+                    centroid = cluster_vectors.mean(axis=0)
+                    samples = example_sentences(cluster_texts, cluster_vectors, centroid, args.examples)
+                    terms = top_terms_for_cluster(feature_names, cluster_vectors, args.top_terms)
+                else:
+                    samples = cluster_texts[: args.examples]
+                    terms = []
 
+                clusters.append(
+                    {
+                        "id": int(label),
+                        "size": len(cluster_texts),
+                        "examples": samples,
+                        "top_terms": terms
+                    }
+                )
+
+        if clusters:
+            large_clusters: List[Dict[str, Any]] = []
+            for cluster in clusters:
+                if cluster["size"] < args.min_cluster_size:
+                    small_bucket["size"] += cluster["size"]
+                    small_bucket["examples"].extend(cluster["examples"])
+                else:
+                    large_clusters.append(cluster)
+            clusters = large_clusters
+            if small_bucket["size"] > 0:
+                small_bucket["examples"] = small_bucket["examples"][: args.examples]
+                clusters.append(small_bucket)
+
+        cluster_count = len(clusters)
+        if cluster_count > best_count:
+            best_count = cluster_count
+            best_clusters = clusters
+
+        if cluster_count >= desired_clusters:
+            break
+
+        threshold = max(0.1, threshold - 0.05)
+
+    clusters = best_clusters
     clusters.sort(key=lambda c: c["size"], reverse=True)
 
     payload = {
         "generated_at": datetime.now().isoformat(),
         "total_messages": len(texts),
         "cluster_count": len(clusters),
+        "min_cluster_size": args.min_cluster_size,
+        "min_cluster_percent": args.min_cluster_percent,
         "clusters": clusters
     }
     write_output(payload)
